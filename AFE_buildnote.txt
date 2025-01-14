@@ -17,6 +17,7 @@ manage symbols > migrate
 
 ***
 
+BC71,6 OT-U11
 
 i/o
 ---
@@ -39,3 +40,7 @@ TSOT-23-5	opamps
 SOT-23		regulator
 SOIC-7		optocoupler
 SOIC-8		currentsensee
+
+
+A5?
+3v3in?
