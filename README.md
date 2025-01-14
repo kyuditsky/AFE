@@ -1,0 +1,41 @@
+
+1/14/25
+
+
+
+***
+
+https://media.digikey.com/pdf/data%20sheets/phoenix%20contact%20pdfs/bc_series_installation_component_housing.pdf
+
+***
+
+https://github.com/erichelgeson/Kicad-STM32
+add legacy symbols:
+symbol editor > File > import
+
+manage symbols > migrate
+
+***
+
+
+i/o
+---
+MSTBVA_2,5_2-G-5,08
+j1	VO_pn
+j2	K_io
+j3	I_pn
+
+
+MCV_1,5_6-G-3.81
+j4	DGND
+	3v3
+	A0
+	A1
+	A2
+	D0
+
+footprints
+TSOT-23-5	opamps
+SOT-23		regulator
+SOIC-7		optocoupler
+SOIC-8		currentsensee
