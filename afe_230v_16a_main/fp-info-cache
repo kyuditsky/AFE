@@ -1,4 +1,4 @@
-24704219434156716
+24718114491077479
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -91048,6 +91048,62 @@ rotary encoder illuminated switch vertical
 0
 9
 8
+STM-32
+YAAJ_BlackPill_1
+BlackPill module with pin headers and sockets. No SWD breakout
+module BlackPill Black Pill header socket
+0
+34
+34
+STM-32
+YAAJ_BlackPill_2
+BlackPill module with pin headers / sockets. No SWD breakout
+module BlackPill Black Pill header
+0
+34
+34
+STM-32
+YAAJ_BlackPill_SWD_1
+BlackPill module with pin headers / sockets. SWD broken out to PCB.
+module BlackPill Black Pill header SWD breakout
+0
+38
+38
+STM-32
+YAAJ_BlackPill_SWD_2
+BlackPill module with pin headers / sockets. SWD broken out to PCB.
+module BlackPill Black Pill header SWD breakout
+0
+38
+38
+STM-32
+YAAJ_BluePill_1
+Through hole headers for BluePill module. No SWD breakout. Fancy silkscreen.
+module BlluePill Blue Pill header SWD breakout
+0
+40
+40
+STM-32
+YAAJ_BluePill_2
+Through hole headers for BluePill module. No SWD breakout. Fancy silkscreen.
+module BlluePill Blue Pill header SWD breakout
+0
+40
+40
+STM-32
+YAAJ_BluePill_SWD_1
+Through hole headers for BluePill module. No SWD breakout. Fancy silkscreen.
+module BlluePill Blue Pill header SWD breakout
+0
+44
+44
+STM-32
+YAAJ_BluePill_SWD_2
+Through hole headers for BluePill module. No SWD breakout. Fancy silkscreen.
+module BlluePill Blue Pill header SWD breakout
+0
+44
+44
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf

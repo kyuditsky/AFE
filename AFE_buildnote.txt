@@ -44,3 +44,12 @@ SOIC-8		currentsensee
 
 A5?
 3v3in?
+
+
+***
+1/15/25
+added HBUS connector to schema
+
+Blackpill STM32 will be on separate daughterboard
+
+
