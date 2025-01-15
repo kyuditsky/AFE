@@ -9,6 +9,8 @@ https://media.digikey.com/pdf/data%20sheets/phoenix%20contact%20pdfs/bc_series_i
 
 ***
 
+***
+
 https://github.com/erichelgeson/Kicad-STM32
 add legacy symbols:
 symbol editor > File > import
@@ -48,8 +50,23 @@ A5?
 
 ***
 1/15/25
+Blackpill STM32 will be on separate daughterboard
+
 added HBUS connector to schema
 
-Blackpill STM32 will be on separate daughterboard
+***
+HBUS-B SET BK - Protective cap
+2278173
+***
+
+Spec:
+Contact 1..4	power
+contact 5..16	signal
+Air clearances and creepage distances
+... to the DIN rail At least 0.23 mm
+... between one another At least 0.13 mm
+... between power and signal At least 0.8 mm
+Current carrying capacity for each contact
+3 A, maximum total current 25 A
 
 
