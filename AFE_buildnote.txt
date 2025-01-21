@@ -70,3 +70,14 @@ Current carrying capacity for each contact
 3 A, maximum total current 25 A
 
 
+***
+1/16/25
+
+generated BOM from schema
+refined layout and i/o port locations
+
+request to swap A2 to A0 and slide down accordingly
+	basically current on the left, voltage on right
+	of J4
+
+
