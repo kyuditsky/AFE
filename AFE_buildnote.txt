@@ -23,7 +23,9 @@ BC71,6 OT-U11
 
 i/o
 ---
-MSTBVA_2,5_2-G-5,08
+MSTBVA_2,5_2-G-5,08		#LPC 2,5/2-ST-5,08	plug 16A / 320V
+				#1792757		12A / will actually fit
+				#MVSTBW 2,5/ 2-ST-5,08
 j1	VO_pn
 j2	K_io
 j3	I_pn
@@ -44,7 +46,7 @@ SOIC-7		optocoupler
 SOIC-8		currentsensee
 
 
-A5?
+A5?		#A2
 3v3in?
 
 
@@ -79,5 +81,40 @@ refined layout and i/o port locations
 request to swap A2 to A0 and slide down accordingly
 	basically current on the left, voltage on right
 	of J4
+
+
+
+***
+1/23/25
+
+Housing:
+
+HBUS 71,6-16P-1S BK - DIN rail bus connectors	2896296		#digikey 10 instock - 33.54
+
+full set
+BC 71,6-SKT-U11-7035+4SPTA6 - Housing set	1456985		#larger space on PCB2-8
+								#11mm connector space on PCB1
+
+Base:
+BC 71,6 UT HBUS BK - Mounting base housing	2896267		#8.53
+
+upperhousing UT11
+BC 71,6 OT U11 KMGY - Upper housing part	2896050		#5.66
+
+housing cover:
+BC 71,6 DKL S TRANS - Housing cover		2896128		#4.93
+
+
+inter-PCB connection:
+
+ESW-106-12-G-D		6 pos, 11.05mm above pcb, gold plated, double row (12pos total)
+			2.54 pitch, THT
+
+2.54 pin header		underside of connecting pcb
+			
+	11.05mm + 2.54mm = 	13.59mm stack height
+				perfect stack from pcb1 to pcb4
+
+
 
 
