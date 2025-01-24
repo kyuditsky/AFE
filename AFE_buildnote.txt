@@ -116,5 +116,50 @@ ESW-106-12-G-D		6 pos, 11.05mm above pcb, gold plated, double row (12pos total)
 				perfect stack from pcb1 to pcb4
 
 
+***
+1/24/25
+
+added copper pours from current i/o to U5
+
+blackpill pinout in PCBnew appears incorrect to documentation
+
+footprint matches:
+	https://uglyduck.vajn.icu/STM32_Pills/BlackPill_STM32F103_Pinout.jpg
+
+current blackpill:
+	https://cdn-shop.adafruit.com/970x728/4877-03.jpg
+
+updated with:
+	https://github.com/MSZ98/Blackpill-KiCad-library
+
+
+STEP files imported into Fusion
+
+	MCV_1,5_6-G-3.81 	&	MCVR 1,5/ 6-ST-3,81
+	1803468				1827169
+		will not work, move socket towards pcb edge
+
+
+	MSTBVA_2,5_2-G-5,08	&	MVSTBW 2,5/ 2-ST-5,08
+	1755736				1792757
+		will NOT work
+		connectors should rotate
+		and new connector should be chosen
+
+Fillets on main PCB edges are only needed if filler plugs are to be used
+
+
+SPTAF 1/ 5-3, 5-IL	supplied with housing kit, 11mm deep
+	16A 160V
+
+1862275
+SPTAF 1/ 2-5,0-IL	2 terminal
+	16A 320V	made to order	in stock at mouser
+			IL vs EL
+
+SPTAF 1/ 4-5,0-EL	4 terminal
+1862437			
+
+
 
 
