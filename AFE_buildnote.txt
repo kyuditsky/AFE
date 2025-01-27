@@ -157,9 +157,39 @@ SPTAF 1/ 2-5,0-IL	2 terminal
 	16A 320V	made to order	in stock at mouser
 			IL vs EL
 
-SPTAF 1/ 4-5,0-EL	4 terminal
+SPTAF 1/ 4-5,0-EL	4 terminal	#use 6 terminal for signal i/o
 1862437			
 
+AC inputs should be at least 2.5mm wire
+
+
+***
+https://electronics.stackexchange.com/questions/645255/4-layer-board-clearance-and-stack-up-for-230v
+
+creepage / clearance
+
+remove gnd plane from around I_inputs & Vp/n
+
+
+***
+1/27/25
+
+SPTAF 1/ 6-5,0-EL
+1862453
+
+
+
+2202302 upper housing 11,11,22,00	restricted availability
+
+in order to use SPTA-THR 2,5/ 6-5,0 P26		#for 12 awg wire AC inputs
+need to swtich to UT22 upperhousing
+
+
+
+1071206
+SPTA-THR 1,5/ 6-5,08 R56	#might work, wire size 16awg
+				#nonstocked at mouser
+				#instock at digikey
 
 
 
