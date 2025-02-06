@@ -2,7 +2,7 @@
   "board": {
     "active_layer": 44,
     "active_layer_preset": "",
-    "auto_track_width": false,
+    "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
     "high_contrast_mode": 0,
@@ -14,7 +14,6 @@
       "vias": 1.0,
       "zones": 0.6
     },
-    "ratsnest_display_mode": 0,
     "selection_filter": {
       "dimensions": true,
       "footprints": true,
@@ -63,7 +62,7 @@
       39,
       40
     ],
-    "visible_layers": "fedffff_ffffffff",
+    "visible_layers": "ffd7fff_ffffffff",
     "zone_display_mode": 0
   },
   "git": {
@@ -73,7 +72,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "afe_230v_16a.kicad_prl",
+    "filename": "bc_71,6_edgecuts.kicad_prl",
     "version": 3
   },
   "project": {

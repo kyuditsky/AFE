@@ -193,3 +193,35 @@ SPTA-THR 1,5/ 6-5,08 R56	#might work, wire size 16awg
 
 
 
+
+********
+
+02/06/25
+
+revisiting pcb2-8
+	& headers between
+	see 01/23/25		#ESW-106-12-G-D
+
+
+JLCPCB standard pcb thickness = 1.6mm
+
+space between each:
+
+pcb1-2	3,55mm
+pcb2-3	3,45
+pcb3-4	3,45
+pcb4-5	3.45
+pcb5-6	3,45
+pcb6-7	0,95
+pcb7-8	-0.3		#pcb7&8 cannot co-exist
+pcb8-9	1.25		#pcb9 replaces fitted cover
+
+
+>>>pcb1 edge dimensions are incorrect
+	edge cutouts in middle are too deep
+	HBUS connector is in the wrong spot
+>>fixed hbus placement
+	did not change edgecuts
+	current edge cut and drawing differ 0,45mm	
+		#radius of curve 1,2mm but edges are 0,75mm offset
+		#hbus location callout uses the 0,75mm line
