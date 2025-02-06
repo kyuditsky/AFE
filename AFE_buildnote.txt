@@ -192,6 +192,16 @@ SPTA-THR 1,5/ 6-5,08 R56	#might work, wire size 16awg
 				#instock at digikey
 
 
+***
+02/02/25
+
+Mouser Order sent			order#273566739
+
+ordered two MKDSN 1.5/2-HT		1985849		rated 13A/320v
+	for Ki/o
+AC inputs: MKDSN 2.5/3-5.08-BK		1800882		
+	(2.5/6 out of stock)
+Signal Out: MKDS 1.5/6			1715190
 
 
 ********
@@ -210,7 +220,7 @@ space between each:
 pcb1-2	3,55mm
 pcb2-3	3,45
 pcb3-4	3,45
-pcb4-5	3.45
+pcb4-5	3.45		#if blackpill is socketed, void pcb5-8
 pcb5-6	3,45
 pcb6-7	0,95
 pcb7-8	-0.3		#pcb7&8 cannot co-exist
@@ -225,3 +235,6 @@ pcb8-9	1.25		#pcb9 replaces fitted cover
 	current edge cut and drawing differ 0,45mm	
 		#radius of curve 1,2mm but edges are 0,75mm offset
 		#hbus location callout uses the 0,75mm line
+
+considering shifting intrapcb connector to the left
+	reasoning: allows for pcb 2 to be installed (cutout is close to mounting fin ~1.5mm)
