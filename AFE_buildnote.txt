@@ -236,5 +236,17 @@ pcb8-9	1.25		#pcb9 replaces fitted cover
 		#radius of curve 1,2mm but edges are 0,75mm offset
 		#hbus location callout uses the 0,75mm line
 
-considering shifting intrapcb connector to the left
+considering shifting intrapcb connector to the left	#implemented
 	reasoning: allows for pcb 2 to be installed (cutout is close to mounting fin ~1.5mm)
+
+
+****
+02/16/25
+
+added pcb5-7 with kludge and copper pours
+added kludge to other pcbs
+
+added silkscreen on pcb9
+
+
+

@@ -1,4 +1,4 @@
-24735496340934204
+24742453581162601
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -99456,6 +99456,13 @@ Connector
 12
 12
 kyuditsky
+1985849_SHDR2W130P0X500_1X2_1000X810X1000P
+1985849
+Connector
+0
+2
+2
+kyuditsky
 1989405
 1989405
 Connector
@@ -99547,6 +99554,13 @@ Connector
 3
 3
 kyuditsky
+SHDR2W110P0X508_1X2_1016X810X1000P
+1985865
+Connector
+0
+2
+2
+kyuditsky
 SL1002A600SP
 SL1002A600SP-1
 Undefined or Miscellaneous
@@ -99609,6 +99623,20 @@ Varistor
 0
 2
 2
+kyuditsky
+afe_text_foot2
+
+
+0
+0
+0
+kyuditsky
+afe_text_footprint
+
+
+0
+0
+0
 kyuditsky
 bav199_tp_SOT95P237X125-3N
 SOT-23_1
