@@ -502,7 +502,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../plot_gerbers/pcb4/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "afe_230v_16a_6.step",
