@@ -249,4 +249,30 @@ added kludge to other pcbs
 added silkscreen on pcb9
 
 
+****
+
+02/27/25
+
+PCBs arrived, Parts arrived
+putting it together:
+
+pcb8 does not fully lock into bottom case
+	top base needs a support remove as well
+	*use pcb7 instead (may still need to remove support
+	pcb8 gnd plane net is wrong
+
+overall, edgecuts are correct
+
+c1-2 are 0402?		#my bad
+	footprint is 0603
+
+the intrapcb connectors looks good
+make cutout in pcb2,3 larger, but fits for now
+
+U4, solidstate relay, just barely fits under pcb2
+
+typical female 2.54mm header, from pcb1 to pcb3, stacks directly underpcb3
+
+	pcb3-pcb5 approximately the same thing
+	could probably use pcb1, 3, & 5 for a 3 board arrangement
 
