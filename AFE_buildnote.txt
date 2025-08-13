@@ -448,5 +448,27 @@ AFE_230v_16a rev.2 aug25
 lets order the updated pcb and mouser components by end of day
 
 	look into jlcpcb pick and place and smaller components (0402)
-		
+
+AFE_diff_schematic
+	focus on just the differential section
+		using 0402 components
+****
+new plan (again)
+	we are ordering a new pcb (because of R20)
+	pick and place the components on the new pcb (adjust footprints accordingly)
+		keeping all R footprints for now, all C footprints are 0603
+
+	U1-3, U6, LEDs, & R29 non- placeable
+	D1-4 are extended ($3.00 per extended component type)
+	U7 is extended, opted out
+
+	ordering 5 boards, populating 2 ($0.75 more to populate 5 as opposed to 2)
+				and rev1 single end works without revision
+				but. lets keep some blank boards
+	16.17 for pcb+pcba
+	9.97 shipping
+	-9.00 coupon
+	total: 18.05
+	
+	
 
