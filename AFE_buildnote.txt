@@ -414,11 +414,17 @@ V1_sense starts:
 
 common components:
 
+	U1-3	AD8528		#opamps		TSOT23-5
 	d1-4	pdz36b		#36v zener diodes, order but dnp
 
 	r20	1k		#ties both sides together
 	r35	20k		#1.5vREF
 	r36	20k		#1.5vREF
+	U7	REF3030		#3V regulator	SOT23
+
+	r39	0		#gnd to dgnd
+	C5,6,10	0.1uF		#filtercaps
+	
 
 notes:
 	look at r20 net, should it be connected directly to output of u1
@@ -428,4 +434,19 @@ notes:
 
 	populate PCB a few components at a time & test
 		looking at you 1.5vREF
+
+AFE_230v_16a rev.2 aug25
+	changelog
+	
+	changed r20 to u1 & u2 outputs
+	added thermal relief to D1 D2 earth connections
+	added thermal relief to I_p & I_n fill zones
+	rotated U4 to keep traces on F.cu
+	added AVDD indicator LEDs to main pcb
+
+2pm
+lets order the updated pcb and mouser components by end of day
+
+	look into jlcpcb pick and place and smaller components (0402)
+		
 
