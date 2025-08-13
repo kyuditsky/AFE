@@ -276,3 +276,156 @@ typical female 2.54mm header, from pcb1 to pcb3, stacks directly underpcb3
 	pcb3-pcb5 approximately the same thing
 	could probably use pcb1, 3, & 5 for a 3 board arrangement
 
+
+
+
+****
+05/05/25 - meeting
+
+
+
+issues soldering the ground plane pads - with thermal relief
+
+plan to design to pick and place, still jlcpcb?
+	mitigate some of the issues possibly due to soldering
+
+
+
+testing feels like a waste of time, i dont always know what im looking at
+
+dont have a good grasp of the details of the scope
+
+
+
+
+single ended two op amps, gnd and point
+	A0 and A1 subtract one from another to get ------
+
+differential has 3 op amp
+	does the subtraction
+
+single
+a0 ref to gnd
+a1 ref to gnd
+	note divider from 3V to GND to give 1.5v at input buffer
+
+
+
+diff r19 r21 should be 500, r20 1k
+r22 r23 dnp
+
+
+everycircuit - simulator
+
+
+testing setup >>
+single ended (two opamp)
+	wavegen 1 & gnd to V0p & V0n
+	scope 1+ to A0			1+ 
+	scope 1- to A1			scope 1- to dgnd
+	3v3V+ to 3v3
+	gnd to DGND
+waveform passed through without power to board
+	1.5v observed at r35/r36
+	
+
+differential
+	wavegen 1 & gnd to V0p & V0n
+	scope 1+ to A0
+	scope 1- to dgnd
+	3v3V+ to 3v3
+	gnd to DGND
+	
+	0.6v observed at r35/r36
+***	
+	r22/r23 should be DNP
+	r19/r21 should be 500ohm
+
+
+****
+updated guidance:
+Focus on single ended:
+
+	two sides are separate paths, test 1 path at a time
+	
+	V0p - wave to A0 - scope
+	scope1- to dgnd
+
+	V0n - wave to A1 - scope
+	scope1- to dgnd
+
+	(need to check for 1.5V at r15/r17; r16/18)
+
+
+
+	
+07/09/25
+
+differential board, 3 opamps
+	depopped r22, r21
+	lifted a trace near r22, 
+		determined iron too hot with narrower tip
+
+Lifted R19 pads while desoldering
+	buss wired from R20 to U1-4 & R22
+		cut old R22 trace to A0
+		R19 is now on R22 pads
+		replaced to 510ohm
+R21 now 510ohm
+R20 in place at 1k
+
+hot glue placed over cut A0 trace
+	(exposed gnd plane)
+
+
+
+
+*******
+08/13/25 10:00a
+
+identify and order just the differential parts
+	to be tested via V0/V1_sense on HBUS footprint
+	using the digilent waveform gen
+
+initial DNP:	
+	r1-12 	voltage dividers 
+	d1-4	zener diodes
+	c1 c2	capacitors	sized up to 0603
+
+V0_sense starts: 	
+	r13 	499k ohm 	#consider a 0ohm resistor
+	c1	1nf
+	r15 	20k (to 3vREF)	#Voltage divider to non-inverting input U1
+	r17	20k (to gnd)
+	r19	510		#feedback R
+	
+	r24	1k		#buffer to non-inverting U3
+	r27	1k		#buffer to 1.5vREF	(r35&r36 20k divider)
+
+V1_sense starts:
+	r14 	499k ohm 	#consider a 0ohm resistor
+	c2	1nf
+	r16 	20k (to 3vREF)	#Voltage divider to non-inverting input U2
+	r18	20k (to gnd)
+	r21	510		#feedback R
+	
+	r25	1k		#buffer to inverting U3
+	r26	1k		#U3 feedback
+
+common components:
+
+	d1-4	pdz36b		#36v zener diodes, order but dnp
+
+	r20	1k		#ties both sides together
+	r35	20k		#1.5vREF
+	r36	20k		#1.5vREF
+
+notes:
+	look at r20 net, should it be connected directly to output of u1
+		#sent to nathan
+		confirms r20 should bridge U1 out to U2 out
+		updated PCBnew
+
+	populate PCB a few components at a time & test
+		looking at you 1.5vREF
+
