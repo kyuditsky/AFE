@@ -471,4 +471,12 @@ new plan (again)
 	total: 18.05
 	
 	
+***
 
+08/18/25
+	plan to order female pin headers from Adafruit
+
+	leave off R34 from auto-populating
+		or add 0 ohm jumper
+
+	need to organize spreadsheets better
