@@ -3,3 +3,591 @@ AFE 230V 16A
 
 Phoenix Contact
 BC Modular Housing
+
+
+
+AFE 230v_16a buildnotes
+addendums at bottom
+
+
+1/14/25
+
+
+
+***
+
+https://media.digikey.com/pdf/data%20sheets/phoenix%20contact%20pdfs/bc_series_installation_component_housing.pdf
+
+***
+
+***
+
+https://github.com/erichelgeson/Kicad-STM32
+add legacy symbols:
+symbol editor > File > import
+
+manage symbols > migrate
+
+***
+
+BC71,6 OT-U11
+
+i/o
+---
+MSTBVA_2,5_2-G-5,08		#LPC 2,5/2-ST-5,08	plug 16A / 320V
+				#1792757		12A / will actually fit
+				#MVSTBW 2,5/ 2-ST-5,08
+j1	VO_pn
+j2	K_io
+j3	I_pn
+
+
+MCV_1,5_6-G-3.81
+j4	DGND
+	3v3
+	A0
+	A1
+	A2
+	D0
+
+footprints
+TSOT-23-5	opamps
+SOT-23		regulator
+SOIC-7		optocoupler
+SOIC-8		currentsensee
+
+
+A5?		#A2
+3v3in?
+
+
+***
+1/15/25
+Blackpill STM32 will be on separate daughterboard
+
+added HBUS connector to schema
+
+***
+HBUS-B SET BK - Protective cap
+2278173
+***
+
+Spec:
+Contact 1..4	power
+contact 5..16	signal
+Air clearances and creepage distances
+... to the DIN rail At least 0.23 mm
+... between one another At least 0.13 mm
+... between power and signal At least 0.8 mm
+Current carrying capacity for each contact
+3 A, maximum total current 25 A
+
+
+***
+1/16/25
+
+generated BOM from schema
+refined layout and i/o port locations
+
+request to swap A2 to A0 and slide down accordingly
+	basically current on the left, voltage on right
+	of J4
+
+
+
+***
+1/23/25
+
+Housing:
+
+HBUS 71,6-16P-1S BK - DIN rail bus connectors	2896296		#digikey 10 instock - 33.54
+
+full set
+BC 71,6-SKT-U11-7035+4SPTA6 - Housing set	1456985		#larger space on PCB2-8
+								#11mm connector space on PCB1
+
+Base:
+BC 71,6 UT HBUS BK - Mounting base housing	2896267		#8.53
+
+upperhousing UT11
+BC 71,6 OT U11 KMGY - Upper housing part	2896050		#5.66
+
+housing cover:
+BC 71,6 DKL S TRANS - Housing cover		2896128		#4.93
+
+
+inter-PCB connection:
+
+ESW-106-12-G-D		6 pos, 11.05mm above pcb, gold plated, double row (12pos total)
+			2.54 pitch, THT
+
+2.54 pin header		underside of connecting pcb
+			
+	11.05mm + 2.54mm = 	13.59mm stack height
+				perfect stack from pcb1 to pcb4
+
+
+***
+1/24/25
+
+added copper pours from current i/o to U5
+
+blackpill pinout in PCBnew appears incorrect to documentation
+
+footprint matches:
+	https://uglyduck.vajn.icu/STM32_Pills/BlackPill_STM32F103_Pinout.jpg
+
+current blackpill:
+	https://cdn-shop.adafruit.com/970x728/4877-03.jpg
+
+updated with:
+	https://github.com/MSZ98/Blackpill-KiCad-library
+
+
+STEP files imported into Fusion
+
+	MCV_1,5_6-G-3.81 	&	MCVR 1,5/ 6-ST-3,81
+	1803468				1827169
+		will not work, move socket towards pcb edge
+
+
+	MSTBVA_2,5_2-G-5,08	&	MVSTBW 2,5/ 2-ST-5,08
+	1755736				1792757
+		will NOT work
+		connectors should rotate
+		and new connector should be chosen
+
+Fillets on main PCB edges are only needed if filler plugs are to be used
+
+
+SPTAF 1/ 5-3, 5-IL	supplied with housing kit, 11mm deep
+	16A 160V
+
+1862275
+SPTAF 1/ 2-5,0-IL	2 terminal
+	16A 320V	made to order	in stock at mouser
+			IL vs EL
+
+SPTAF 1/ 4-5,0-EL	4 terminal	#use 6 terminal for signal i/o
+1862437			
+
+AC inputs should be at least 2.5mm wire
+
+
+***
+https://electronics.stackexchange.com/questions/645255/4-layer-board-clearance-and-stack-up-for-230v
+
+creepage / clearance
+
+remove gnd plane from around I_inputs & Vp/n
+
+
+***
+1/27/25
+
+SPTAF 1/ 6-5,0-EL
+1862453
+
+
+
+2202302 upper housing 11,11,22,00	restricted availability
+
+in order to use SPTA-THR 2,5/ 6-5,0 P26		#for 12 awg wire AC inputs
+need to swtich to UT22 upperhousing
+
+
+
+1071206
+SPTA-THR 1,5/ 6-5,08 R56	#might work, wire size 16awg
+				#nonstocked at mouser
+				#instock at digikey
+
+
+***
+02/02/25
+
+Mouser Order sent			order#273566739
+
+ordered two MKDSN 1.5/2-HT		1985849		rated 13A/320v
+	for Ki/o
+AC inputs: MKDSN 2.5/3-5.08-BK		1800882		
+	(2.5/6 out of stock)
+Signal Out: MKDS 1.5/6			1715190
+
+
+********
+
+02/06/25
+
+revisiting pcb2-8
+	& headers between
+	see 01/23/25		#ESW-106-12-G-D
+
+
+JLCPCB standard pcb thickness = 1.6mm
+
+space between each:
+
+pcb1-2	3,55mm
+pcb2-3	3,45
+pcb3-4	3,45
+pcb4-5	3.45		#if blackpill is socketed, void pcb5-8
+pcb5-6	3,45
+pcb6-7	0,95
+pcb7-8	-0.3		#pcb7&8 cannot co-exist
+pcb8-9	1.25		#pcb9 replaces fitted cover
+
+
+>>>pcb1 edge dimensions are incorrect
+	edge cutouts in middle are too deep
+	HBUS connector is in the wrong spot
+>>fixed hbus placement
+	did not change edgecuts
+	current edge cut and drawing differ 0,45mm	
+		#radius of curve 1,2mm but edges are 0,75mm offset
+		#hbus location callout uses the 0,75mm line
+
+considering shifting intrapcb connector to the left	#implemented
+	reasoning: allows for pcb 2 to be installed (cutout is close to mounting fin ~1.5mm)
+
+
+****
+02/16/25
+
+added pcb5-7 with kludge and copper pours
+added kludge to other pcbs
+
+added silkscreen on pcb9
+
+
+****
+
+02/27/25
+
+PCBs arrived, Parts arrived
+putting it together:
+
+pcb8 does not fully lock into bottom case
+	top base needs a support remove as well
+	*use pcb7 instead (may still need to remove support
+	pcb8 gnd plane net is wrong
+
+overall, edgecuts are correct
+
+c1-2 are 0402?		#my bad
+	footprint is 0603
+
+the intrapcb connectors looks good
+make cutout in pcb2,3 larger, but fits for now
+
+U4, solidstate relay, just barely fits under pcb2
+
+typical female 2.54mm header, from pcb1 to pcb3, stacks directly underpcb3
+
+	pcb3-pcb5 approximately the same thing
+	could probably use pcb1, 3, & 5 for a 3 board arrangement
+
+
+
+
+****
+05/05/25 - meeting
+
+
+
+issues soldering the ground plane pads - with thermal relief
+
+plan to design to pick and place, still jlcpcb?
+	mitigate some of the issues possibly due to soldering
+
+
+
+testing feels like a waste of time, i dont always know what im looking at
+
+dont have a good grasp of the details of the scope
+
+
+
+
+single ended two op amps, gnd and point
+	A0 and A1 subtract one from another to get ------
+
+differential has 3 op amp
+	does the subtraction
+
+single
+a0 ref to gnd
+a1 ref to gnd
+	note divider from 3V to GND to give 1.5v at input buffer
+
+
+
+diff r19 r21 should be 500, r20 1k
+r22 r23 dnp
+
+
+everycircuit - simulator
+
+
+testing setup >>
+single ended (two opamp)
+	wavegen 1 & gnd to V0p & V0n
+	scope 1+ to A0			1+ 
+	scope 1- to A1			scope 1- to dgnd
+	3v3V+ to 3v3
+	gnd to DGND
+waveform passed through without power to board
+	1.5v observed at r35/r36
+	
+
+differential
+	wavegen 1 & gnd to V0p & V0n
+	scope 1+ to A0
+	scope 1- to dgnd
+	3v3V+ to 3v3
+	gnd to DGND
+	
+	0.6v observed at r35/r36
+***	
+	r22/r23 should be DNP
+	r19/r21 should be 500ohm
+
+
+****
+updated guidance:
+Focus on single ended:
+
+	two sides are separate paths, test 1 path at a time
+	
+	V0p - wave to A0 - scope
+	scope1- to dgnd
+
+	V0n - wave to A1 - scope
+	scope1- to dgnd
+
+	(need to check for 1.5V at r15/r17; r16/18)
+
+
+
+	
+07/09/25
+
+differential board, 3 opamps
+	depopped r22, r21
+	lifted a trace near r22, 
+		determined iron too hot with narrower tip
+
+Lifted R19 pads while desoldering
+	buss wired from R20 to U1-4 & R22
+		cut old R22 trace to A0
+		R19 is now on R22 pads
+		replaced to 510ohm
+R21 now 510ohm
+R20 in place at 1k
+
+hot glue placed over cut A0 trace
+	(exposed gnd plane)
+
+
+
+
+*******
+08/13/25 10:00a
+
+identify and order just the differential parts
+	to be tested via V0/V1_sense on HBUS footprint
+	using the digilent waveform gen
+
+initial DNP:	
+	r1-12 	voltage dividers 
+	d1-4	zener diodes
+	c1 c2	capacitors	sized up to 0603
+
+V0_sense starts: 	
+	r13 	499k ohm 	#consider a 0ohm resistor
+	c1	1nf
+	r15 	20k (to 3vREF)	#Voltage divider to non-inverting input U1
+	r17	20k (to gnd)
+	r19	510		#feedback R
+	
+	r24	1k		#buffer to non-inverting U3
+	r27	1k		#buffer to 1.5vREF	(r35&r36 20k divider)
+
+V1_sense starts:
+	r14 	499k ohm 	#consider a 0ohm resistor
+	c2	1nf
+	r16 	20k (to 3vREF)	#Voltage divider to non-inverting input U2
+	r18	20k (to gnd)
+	r21	510		#feedback R
+	
+	r25	1k		#buffer to inverting U3
+	r26	1k		#U3 feedback
+
+common components:
+
+	U1-3	AD8528		#opamps		TSOT23-5
+	d1-4	pdz36b		#36v zener diodes, order but dnp
+
+	r20	1k		#ties both sides together
+	r35	20k		#1.5vREF
+	r36	20k		#1.5vREF
+	U7	REF3030		#3V regulator	SOT23
+
+	r39	0		#gnd to dgnd
+	C5,6,10	0.1uF		#filtercaps
+	
+
+notes:
+	look at r20 net, should it be connected directly to output of u1
+		#sent to nathan
+		confirms r20 should bridge U1 out to U2 out
+		updated PCBnew
+
+	populate PCB a few components at a time & test
+		looking at you 1.5vREF
+
+AFE_230v_16a rev.2 aug25
+	changelog
+	
+	changed r20 to u1 & u2 outputs
+	added thermal relief to D1 D2 earth connections
+	added thermal relief to I_p & I_n fill zones
+	rotated U4 to keep traces on F.cu
+	added AVDD indicator LEDs to main pcb
+
+2pm
+lets order the updated pcb and mouser components by end of day
+
+	look into jlcpcb pick and place and smaller components (0402)
+
+AFE_diff_schematic
+	focus on just the differential section
+		using 0402 components
+****
+new plan (again)
+	we are ordering a new pcb (because of R20)
+	pick and place the components on the new pcb (adjust footprints accordingly)
+		keeping all R footprints for now, all C footprints are 0603
+
+	U1-3, U6, LEDs, & R29 non- placeable
+	D1-4 are extended ($3.00 per extended component type)
+	U7 is extended, opted out
+
+	ordering 5 boards, populating 2 ($0.75 more to populate 5 as opposed to 2)
+				and rev1 single end works without revision
+				but. lets keep some blank boards
+	16.17 for pcb+pcba
+	9.97 shipping
+	-9.00 coupon
+	total: 18.05
+	
+	
+***
+
+08/18/25
+	plan to order female pin headers from Adafruit
+
+	leave off R34 from auto-populating
+		or add 0 ohm jumper
+
+	need to organize spreadsheets better
+
+****
+09/08/25
+
+ordered more microhook test leads
+
+
+looking over mouser order
+
+	AC signal inputs - 1
+	Signal Outputs - 1
+	K i/o - 2
+
+	opamps - 10
+	U4 Relay - 1
+	U7 3v ref - 5
+	U5 current sense - 2
+	R29 big R - 4
+	
+	pcb4 elevated socket - 2
+
+R20 could have been rerouted without a via to B.Cu
+removed thermal relief from Ip,In
+
+
+dont auto-populate r30,r31 (only pop for opamp current sensing with r29)
+
+
+
+test before populating r1-12 (voltage dividers)
+
+r13,14, r22,23 will need hand populating (extended componenets)
+	#should not have popped r22,r23, but will test waveform thru A0,A1
+5v,3v3 LED hand pop
+
+header pins as needed
+	V1/V0 test points
+	DGND > D0 header
+		dgnd, 3v, A0,A1,A2,D0
+
+3v3, 5v LED test good
+
+3v3 supply, no opamps
+	3.317v at 3v3
+	2.997v at 3vref
+	1.483v at 1.5vref
+
+#same divider but different nets?
+#1.5vref and r15/r17 & r16/r18
+
+power looks good, continueing to add opamps
+
+Should not have popped r22,r23 for differential setup, but will test waveform thru A0,A1
+	V0_sense thru to A0
+	V1_sense thru to A1
+		both test good without power to board, no offset
+
+		with 3v3 power to board, look good, adds a 1.46v(A0) & 1.47v(A1) offset
+			with or without waveform input (5v amplitude)
+			scope range 1v/div
+
+going to remove r22,r23
+	r22,23 depopped without trouble
+
+3v3 supply, opamps installed
+r27, 1.5vref = 1.497v
+3v0ref = 3.0v
+3v3 = 3.317v
+1.5vref = 1.497v (r35/r36)
+
+power still looks good
+
+
+3v3 to board
+
+W1 to V0_sense
+W2 to V1_sense
+
+1+ to A0
+1- to dgnd
+
+no longer the 1.5v offset
+	output (A0) looks promising, especially with Sine wave inputs
+	scope range needs to be dialed down to 100mV/div or less
+
+can add 
+	Vin dividers (r1-12)
+	input/signal I/O
+	blackpill header
+	Ki/o relay
+& option for either 
+		current sense IC (depop r30,31)
+		or R29 & opamp
+	
+
+
+
+
+
+
