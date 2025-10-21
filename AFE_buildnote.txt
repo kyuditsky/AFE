@@ -579,8 +579,58 @@ can add
 		current sense IC (depop r30,31)
 		or R29 & opamp
 	
+****
+
+10/21/25
+	check both sides of diff input with W1, S1+ > A0
+
+R19,R21, on Rev2 autopop board are 510ohm
+	*single ended should be 0ohm
+
+goals:
 
 
+	take 2nd autopop board and set up as single ended AFE W/ current sense IC
+		pop:
+			R22, R23, R13, R14
+			U1, U2, 
+			U7		#needed for 3v0
+			U5		#current sense IC
+			R19,R21		#swap to 0ohm jumper
+			D5,D6		#AVDD LED's
+		*depop:	
+			R20
+			#R30,R31	#redundant disconnect
+			R32,R34		#disconnects other architecture
+			R37		#to disconnect 1.5v from A2
+			#R38		#connects A2 to I0_sense (pin13 HBUS)
+			R24-R27		#removed, left R26,R28
+			R19,R21		#repop with 0ohm
+
+
+	relays - depop from rev.01 (both boards, low priority)
+
+	check on hand qty of Vin array R1-12 (need 24)
+		mouser order #276278869 states 38 ordered (aug25)
+
+	**
+	1st Rev2 board:
+		pop:
+			R29
+			R1-12
+			U6
+			U4	relay
+	*Done, needs tested
+
+
+parts left:
+
+	opamps - 4
+	led - 	6
+	3v0 ref- 3
+	r1-12 - 14
+
+	
 
 
 
