@@ -589,8 +589,8 @@ R19,R21, on Rev2 autopop board are 510ohm
 
 goals:
 
-
-	take 2nd autopop board and set up as single ended AFE W/ current sense IC
+	*done
+	single end autopop board and set up as single ended AFE W/ current sense IC
 		pop:
 			R22, R23, R13, R14
 			U1, U2, 
@@ -614,24 +614,73 @@ goals:
 		mouser order #276278869 states 38 ordered (aug25)
 
 	**
-	1st Rev2 board:
+	diff Rev2 board:
 		pop:
 			R29
 			R1-12
-			U6
+			U6	#op-amp for Isense
 			U4	relay
+		
 	*Done, needs tested
 
 
-parts left:
+inventory left:
 
 	opamps - 4
 	led - 	6
 	3v0 ref- 3
 	r1-12 - 14
+	current sense ic- 1
+	zener diodes - 8
+	r29- 3
 
+
+
+****
+10/24/25
+
+testing single end AFE, Rev2.0
+	power:
+	LEDs good
+	3v3 opamp power good
+	3v0 rectifier good
+	1v5 divider good
+
+scope 1+ on A0
+scope 2+ on A1
+	no input: 1v5 bias, I think
+	wave1 > V0_sense
+	wave2 > V1_sense
+scope 1,2- > gnd
+
+wavegens outputing 5v 10kHz sine wave
+	scopes reading 174mV peak to peak
+	A0 & A1 slightly out of phase
+
+shift wave1,2 to V0p & V0n
+	peak2peak = ~15mV	#makes sense, 
+				#thats what the input voltage divider is for
+
+now checking against single end rev1.0		#this board was in decent shape
 	
+	1v5 bias
+	20mV p2p
+	looks good
 
+double checking rev2
+	1v5 bias
+	20mV p2p
+	looks the same, tho phase is almost 180* out now
 
+**possible issue between DGND and Earth
+	keep eye on it
 
+diff rev2
+	wave1,2 to V0p,V0n
+	scope1+ to A0
+	looks great
 
+note: always opt for the 5pcb build out
+
+mouser: 37270215	38.23
+	ordered i/o jacks, 1 set housing
