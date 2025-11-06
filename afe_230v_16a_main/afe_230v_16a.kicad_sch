@@ -8615,6 +8615,16 @@
 		)
 		(uuid "5c113667-2a58-4162-8415-14f1c236fa2a")
 	)
+	(text "R39 connects dgnd to gnd"
+		(exclude_from_sim no)
+		(at 373.634 120.142 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "621e4400-ca68-4cbb-87f6-f99f8d1af44b")
+	)
 	(text "KO"
 		(exclude_from_sim no)
 		(at 310.642 166.878 0)
@@ -8684,6 +8694,16 @@
 			)
 		)
 		(uuid "e521d076-ef87-488d-819e-ae5c0bd7e10c")
+	)
+	(text "R29: shunt resistor"
+		(exclude_from_sim no)
+		(at 126.746 198.374 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e9232162-2b8c-48c3-8d38-b65722c2a1b0")
 	)
 	(text "Contactor/\nRelay"
 		(exclude_from_sim no)

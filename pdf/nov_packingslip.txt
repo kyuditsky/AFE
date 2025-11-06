@@ -1,0 +1,22 @@
+
+
+11/06/25
+
+Ship to:
+	Nathan Charles
+
+	Lancaster PA 17603
+
+	(2)	BC 71.6, UT22 housing upper + base - 2896267, 2896050		
+	(1)	BC 71.6 Hinged Clear Cover - 2896128
+	(1)	BC 71.6 plastic Cover Plate - 2896128 (same mfr#)
+	(2)	PCB9 AFE Cover Plate (1 installed)
+	(1)	Diff rev2.0, populated
+	(1)	Single rev2.0 populated
+	(1)	pcb4 blackpill daughter, populated
+	(2)	20 pin F.header
+	(2)	6 pin male header
+	(2)	UT22 Cover Cap (11.1mm depth, 36.6mm width) - 2896209
+	(2)	pcbpack 2-8 (1-pcb4 smd populated)
+	(1)	pcb1 rev1.0 blank
+	(1)	pcb1 rev2.0 blank 

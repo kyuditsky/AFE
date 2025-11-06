@@ -630,10 +630,10 @@ inventory left:
 	led - 	6
 	3v0 ref- 3
 	r1-12 - 14
-	current sense ic- 1
+	current sense ic- 0 (used on rev2 single end)
 	zener diodes - 8
 	r29- 3
-
+	zero ohm jump - 14
 
 
 ****
@@ -670,7 +670,9 @@ now checking against single end rev1.0		#this board was in decent shape
 double checking rev2
 	1v5 bias
 	20mV p2p
-	looks the same, tho phase is almost 180* out now
+	looks the same, 
+		#tho phase is almost 180* out now
+		#pert sure thats as it should be
 
 **possible issue between DGND and Earth
 	keep eye on it
@@ -678,9 +680,60 @@ double checking rev2
 diff rev2
 	wave1,2 to V0p,V0n
 	scope1+ to A0
-	looks great
+	looks great, the input signals add amplitude to the output
+	0.825v bias	5V 10kHz inputs
+	42mV p2p
 
 note: always opt for the 5pcb build out
 
 mouser: 37270215	38.23
 	ordered i/o jacks, 1 set housing
+
+		cost of 1 housing:	15.24
+			upper:		6.33
+			lower:		8.91	
+
+***
+11/03/25
+2nd monitor set up over electronics bench
+mouser parts came in
+
+taking a look at differtial again
+	bias was around 0.8v
+	5v input at both v_sense and separately at Vin
+and that was to be expected
+
+check single ends, expected similar bias (0.8v)
+	checked all lines, bias at consistant ~1.5v
+
+cross checked rev01 single ended to rev2, same results
+	plan to add i/o to rev2 boards and send out
+	keep rev1 single end board for rPi testing (functionally equivalent to rev2)
+	see if we'vve got parts on hand to handbuild another rev2 diff board
+		consider improving layout
+
+
+***
+11/06/25
+14 0ohm jump on hand
+
+r42,r43 popped x2
+	hbus jumpers
+
+added i/o to both rev2 boards
+
+packing for shipment
+	(2)	BC 71.6, UT22 housing upper + base - 2896267, 2896050		
+	(1)	BC 71.6 Hinged Clear Cover - 2896128
+	(1)	BC 71.6 plastic Cover Plate - 2896128 (same mfr#)
+	(2)	PCB9 AFE Cover Plate (1 installed)
+	(1)	Diff rev2.0, populated
+	(1)	Single rev2.0 populated
+	(1)	pcb4 blackpill daughter, populated
+	(2)	20 pin F.header
+	(2)	6 pin male header
+	(2)	UT22 Cover Cap (11.1mm depth, 36.6mm width) - 2896209
+	(2)	pcbpack 2-8 (1-pcb4 smd populated)
+	(1)	pcb1 rev1.0 blank
+	(1)	pcb1 rev2.0 blank
+
